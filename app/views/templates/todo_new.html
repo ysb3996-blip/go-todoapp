@@ -1,0 +1,9 @@
+{{define "content"}}
+<h1 class="mt-4">新しい Todo</h1>
+<form class="form-signin" action="/todos/save" method="post">
+  <textarea name="content" class="form-control" rows="3" placeholder="やること" required autofocus></textarea>
+  <br/>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">保存</button>
+</form>
+<a href="/todos">一覧に戻る</a>
+{{end}}

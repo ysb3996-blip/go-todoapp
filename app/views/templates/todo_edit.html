@@ -1,0 +1,9 @@
+{{define "content"}}
+<h1 class="mt-4">Todo の編集</h1>
+<form class="form-signin" action="/todos/update/{{.ID}}" method="post">
+  <textarea name="content" class="form-control" rows="3" required autofocus>{{.Content}}</textarea>
+  <br/>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">更新</button>
+</form>
+<a href="/todos">一覧に戻る</a>
+{{end}}

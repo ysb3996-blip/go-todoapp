@@ -1,0 +1,33 @@
+{{define "content"}}
+<h1 class="mt-4">Todo</h1>
+<p class="lead">{{.User.Name}} さんのやること</p>
+<a class="btn btn-primary mb-3" href="/todos/new">新しい Todo</a>
+
+{{if .Todos}}
+<table class="table text-left">
+  <thead>
+    <tr>
+      <th>内容</th>
+      <th>作成日時</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{range .Todos}}
+    <tr>
+      <td>{{.Content}}</td>
+      <td>{{.CreatedAt.Format "2006-01-02 15:04"}}</td>
+      <td class="text-right">
+        <a class="btn btn-sm btn-outline-secondary" href="/todos/edit/{{.ID}}">編集</a>
+        <form class="d-inline" action="/todos/delete/{{.ID}}" method="post">
+          <button class="btn btn-sm btn-outline-danger" type="submit">削除</button>
+        </form>
+      </td>
+    </tr>
+    {{end}}
+  </tbody>
+</table>
+{{else}}
+<p>まだ Todo はありません。</p>
+{{end}}
+{{end}}
